@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+[Dd]esktop.ini
+
+# JetBrains
+.idea/
+*.iml
+
+# Visual Studio Code
+.vscode/
+
+# NodeJS
+node_modules/
+
+# Next.js
+.next/
+
+# TypeScript
+next-env.d.ts
+
+# Testing
+coverage/
+
+# Secrets
+.env
+
+# Generated
+build/
+*.log

@@ -1,0 +1,20 @@
+{
+    "functions" : {
+        "app/api/bundles/route.ts"      : {
+            "memory"      : 160,
+            "maxDuration" : 10
+        },
+        "app/api/bundles/[id]/route.ts" : {
+            "memory"      : 160,
+            "maxDuration" : 10
+        },
+        "app/api/carts/route.ts"        : {
+            "memory"      : 160,
+            "maxDuration" : 10
+        },
+        "app/api/carts/[id]/route.ts"   : {
+            "memory"      : 160,
+            "maxDuration" : 10
+        }
+    }
+}

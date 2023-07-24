@@ -1,0 +1,179 @@
+{
+    "version" : "5",
+    "dialect" : "pg",
+    "id"      : "d40a4252-0a6d-4534-8c34-7ce002f27b5b",
+    "prevId"  : "00000000-0000-0000-0000-000000000000",
+    "tables"  : {
+        "bundles"  : {
+            "name"                 : "bundles",
+            "schema"               : "",
+            "columns"              : {
+                "id"             : {
+                    "name"       : "id",
+                    "type"       : "uuid",
+                    "primaryKey" : true,
+                    "notNull"    : true
+                },
+                "display_name"   : {
+                    "name"       : "display_name",
+                    "type"       : "varchar",
+                    "primaryKey" : false,
+                    "notNull"    : true
+                },
+                "description"    : {
+                    "name"       : "description",
+                    "type"       : "varchar",
+                    "primaryKey" : false,
+                    "notNull"    : false
+                },
+                "icon_id"        : {
+                    "name"       : "icon_id",
+                    "type"       : "varchar(32)",
+                    "primaryKey" : false,
+                    "notNull"    : false
+                },
+                "is_private"     : {
+                    "name"       : "is_private",
+                    "type"       : "boolean",
+                    "primaryKey" : false,
+                    "notNull"    : true,
+                    "default"    : false
+                },
+                "download_count" : {
+                    "name"       : "download_count",
+                    "type"       : "integer",
+                    "primaryKey" : false,
+                    "notNull"    : true,
+                    "default"    : 0
+                },
+                "created_by"     : {
+                    "name"       : "created_by",
+                    "type"       : "varchar(256)",
+                    "primaryKey" : false,
+                    "notNull"    : true
+                },
+                "created_at"     : {
+                    "name"       : "created_at",
+                    "type"       : "timestamp",
+                    "primaryKey" : false,
+                    "notNull"    : true,
+                    "default"    : "now()"
+                },
+                "updated_at"     : {
+                    "name"       : "updated_at",
+                    "type"       : "timestamp",
+                    "primaryKey" : false,
+                    "notNull"    : true,
+                    "default"    : "now()"
+                }
+            },
+            "indexes"              : {
+                "display_name_idx" : {
+                    "name"     : "display_name_idx",
+                    "columns"  : [
+                        "display_name"
+                    ],
+                    "isUnique" : false
+                },
+                "description_idx"  : {
+                    "name"     : "description_idx",
+                    "columns"  : [
+                        "description"
+                    ],
+                    "isUnique" : false
+                },
+                "view_count_idx"   : {
+                    "name"     : "view_count_idx",
+                    "columns"  : [
+                        "download_count"
+                    ],
+                    "isUnique" : false
+                },
+                "created_by_idx"   : {
+                    "name"     : "created_by_idx",
+                    "columns"  : [
+                        "created_by"
+                    ],
+                    "isUnique" : false
+                },
+                "updated_at_idx"   : {
+                    "name"     : "updated_at_idx",
+                    "columns"  : [
+                        "updated_at"
+                    ],
+                    "isUnique" : false
+                }
+            },
+            "foreignKeys"          : {},
+            "compositePrimaryKeys" : {},
+            "uniqueConstraints"    : {}
+        },
+        "packages" : {
+            "name"                 : "packages",
+            "schema"               : "",
+            "columns"              : {
+                "bundle_id" : {
+                    "name"       : "bundle_id",
+                    "type"       : "uuid",
+                    "primaryKey" : false,
+                    "notNull"    : true
+                },
+                "id"        : {
+                    "name"       : "id",
+                    "type"       : "varchar",
+                    "primaryKey" : false,
+                    "notNull"    : true
+                },
+                "source"    : {
+                    "name"       : "source",
+                    "type"       : "source",
+                    "primaryKey" : false,
+                    "notNull"    : true
+                }
+            },
+            "indexes"              : {},
+            "foreignKeys"          : {
+                "packages_bundle_id_bundles_id_fk" : {
+                    "name"        : "packages_bundle_id_bundles_id_fk",
+                    "tableFrom"   : "packages",
+                    "tableTo"     : "bundles",
+                    "columnsFrom" : [
+                        "bundle_id"
+                    ],
+                    "columnsTo"   : [
+                        "id"
+                    ],
+                    "onDelete"    : "cascade",
+                    "onUpdate"    : "cascade"
+                }
+            },
+            "compositePrimaryKeys" : {
+                "packages_bundle_id_id" : {
+                    "name"    : "packages_bundle_id_id",
+                    "columns" : [
+                        "bundle_id",
+                        "id"
+                    ]
+                }
+            },
+            "uniqueConstraints"    : {}
+        }
+    },
+    "enums"   : {
+        "source" : {
+            "name"   : "source",
+            "values" : {
+                "Homebrew/cask" : "Homebrew/cask",
+                "Homebrew/core" : "Homebrew/core",
+                "App Store"     : "App Store",
+                "Tweak"         : "Tweak"
+            }
+        }
+    },
+    "schemas" : {},
+    "_meta"   : {
+        "schemas" : {},
+        "tables"  : {},
+        "columns" : {}
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "version" : "5",
+    "dialect" : "pg",
+    "entries" : [
+        {
+            "idx"         : 0,
+            "version"     : "5",
+            "when"        : 1690301337227,
+            "tag"         : "0000_robust_boom_boom",
+            "breakpoints" : true
+        },
+        {
+            "idx"         : 1,
+            "version"     : "5",
+            "when"        : 1690842264000,
+            "tag"         : "0001_pale_scarlet_spider",
+            "breakpoints" : true
+        }
+    ]
+}
